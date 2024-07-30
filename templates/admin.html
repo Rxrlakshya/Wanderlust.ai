@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h2>Admin Login</h2>
+    <form method="POST" action="{{ url_for('admin') }}">
+        <label for="admin_id">Admin ID:</label>
+        <input type="text" id="admin_id" name="admin_id" required><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
+        <button type="submit">Login</button>
+        {% if error %}
+            <p>Check ID and password and try again.</p>
+        {% endif %}
+    </form>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h2>Admin Dashboard</h2>
+    <button onclick="window.location.href='{{ url_for('search_csv', filename='places') }}'">Places Database</button>
+    <button onclick="window.location.href='{{ url_for('search_csv', filename='cities') }}'">Cities Database</button>
+
+    <form action="{{ url_for('search_csv') }}" method="get">
+        <input type="hidden" name="filename" value="{{ filename }}">
+        <input type="text" name="query" placeholder="Search...">
+        <button type="submit">Search</button>
+    </form>
+
+    {% for table in tables %}
+        {{ table|safe }}
+    {% endfor %}
+</body>
+</html>

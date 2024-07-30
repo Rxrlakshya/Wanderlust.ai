@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wanderlust.ai</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@400;600&display=swap">
+</head>
+<body>
+    <!-- Banner -->
+    <header class="banner">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Wanderlust.ai Logo" class="logo">
+        <div class="logo-text">Wanderlust.ai</div>
+        <a href="{{ url_for('admin') }}" class="admin-login">Admin Login</a>
+    </header>
+
+    <!-- Video Section -->
+    <section class="video-section">
+        <video autoplay loop muted>
+            <source src="{{ url_for('static', filename='videos/your-video-file.mp4') }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="video-overlay">
+            <div class="video-text">
+                <p class="bada-text">Your AI Travel Planner</p>
+                <p class="chota-text">Plan Smarter, Travel Better – AI Travel Planning at Your Fingertips.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Banner Below Video -->
+    <section class="boxes-banner">
+        <div class="boxes-section">
+            <div class="box">
+                <img src="{{ url_for('static', filename='images/1.jpg') }}" alt="Smart Trip Planning">
+                <h2>Smart Trip Planning</h2>
+                <p>Personalized itineraries, hassle-free.</p>
+            </div>
+            <div class="box">
+                <img src="{{ url_for('static', filename='images/2.jpg') }}" alt="Real-Time Updates">
+                <h2>Real-Time Updates</h2>
+                <p>Stay informed on the go.</p>
+            </div>
+            <div class="box">
+                <img src="{{ url_for('static', filename='images/3.jpg') }}" alt="Ask Me Anything">
+                <h2>Ask Me Anything</h2>
+                <p>Your personal travel assistant.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- User Input Section -->
+    <section class="input-section">
+        <div class="user-input">
+            <h2>Plan Your Trip</h2>
+            <form id="itinerary-form">
+                <label for="destination">Destination:</label>
+                <input type="text" id="destination" name="destination" required><br>
+                <label for="start_date">Start Date:</label>
+                <input type="date" id="start_date" name="start_date" required><br>
+                <label for="end_date">End Date:</label>
+                <input type="date" id="end_date" name="end_date" required><br>
+                <label for="interests">Interests:</label>
+                <div id="interests">
+                    <label><input type="checkbox" name="interest" value="Adventure"> Adventure</label>
+                    <label><input type="checkbox" name="interest" value="Calm"> Calm</label>
+                    <label><input type="checkbox" name="interest" value="Culture"> Culture</label>
+                    <label><input type="checkbox" name="interest" value="Nature"> Nature</label>
+                    <label><input type="checkbox" name="interest" value="Food"> Food</label>
+                    <label><input type="checkbox" name="interest" value="History"> History</label>
+                    <label><input type="checkbox" name="interest" value="Art"> Art</label>
+                    <label><input type="checkbox" name="interest" value="Nightlife"> Nightlife</label>
+                    <label><input type="checkbox" name="interest" value="Shopping"> Shopping</label>
+                    <label><input type="checkbox" name="interest" value="Relaxation"> Relaxation</label>
+                </div><br>
+                <button type="submit">Get Itinerary</button>
+            </form>
+            
+        </div>
+    </section>
+
+    <!-- Real-Time Updates Section -->
+    <section class="updates-section">
+        <h2>Real-Time Updates</h2>
+        <div id="real-time-updates"></div>
+    </section>
+
+    <!-- Chatbox Section -->
+    <section class="chatbox-section">
+        <h2>Ask Me Anything</h2>
+        <div id="chatbox"></div>
+        <form id="chat-form">
+            <input type="text" id="chat-input" name="chat-input" placeholder="Type a message...">
+            <button type="submit">Send</button>
+        </form>
+    </section>
+    <!-- Itinerary Section -->
+<section class="itinerary-section">
+    <h2>Your Itinerary</h2>
+    <div id="itinerary-output">
+        <!-- Itinerary will be populated here -->
+    </div>
+</section>
+
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
